@@ -3,7 +3,7 @@
   email = rduenasf@gmail.com
 
 [github]
-    user = rduenasf
+   user = rduenasf
    token = !security 2>&1 >/dev/null find-generic-password -gs \"GitHub API Key\" | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
 #  token = !security 2>&1 >/dev/null find-generic-password -gs \"GitHub API Key\" | sed 's/password: "\(.*\)"/\1/'
 
@@ -11,6 +11,10 @@
   co = checkout
   st = status
   ci = commit
+
+[branch "master"]
+  remote = origin
+  merge = refs/heads/master
 
 [diff]
   tool = opendiff
