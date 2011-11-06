@@ -1,0 +1,19 @@
+[user]
+  name = Rodrigo Dueñas
+  email = rduenasf@gmail.com
+
+[github]
+    user = rduenasf
+   token = !security 2>&1 >/dev/null find-generic-password -gs \"GitHub API Key\" | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
+#  token = !security 2>&1 >/dev/null find-generic-password -gs \"GitHub API Key\" | sed 's/password: "\(.*\)"/\1/'
+
+[alias]
+  co = checkout
+  st = status
+  ci = commit
+
+[diff]
+  tool = opendiff
+
+[difftool]
+  prompt = false

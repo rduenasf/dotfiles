@@ -1,0 +1,4 @@
+# brew bash completion
+. `brew --prefix`/etc/bash_completion
+
+#. ~/.bash/completion_scripts/git-completion

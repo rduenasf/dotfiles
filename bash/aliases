@@ -1,0 +1,33 @@
+# simple search command
+search() {
+    find . | grep $1
+}
+
+# cd's to frontmost window of Finder
+cdh() {
+    cd "`osascript -e 'tell application "Finder"' \
+        -e 'set myname to POSIX path of (target of window 1 as alias)' \
+        -e 'end tell' 2>/dev/null`"
+}
+
+# quicklook the given file
+ql() {
+  case "$1" in
+    /*) path="$1" ;;
+    .)  path="`/bin/pwd`" ;;
+    *)  path="`/bin/pwd`/$1" ;;
+  esac
+  prevpath=
+  while [ "$prevpath" != "$path" ]
+  do
+    prevpath="$path"
+    path=`echo "$path" | sed 's,[^/]*/\.\./,,'`
+  done
+
+  osascript -e "set mypath to POSIX file \"$path\"" \
+      -e 'tell application "Finder"' \
+      -e 'reveal mypath' \
+      -e 'activate' \
+      -e 'end tell' \
+      -e 'tell application "System Events" to keystroke "y" using command down' 2>/dev/null
+}
