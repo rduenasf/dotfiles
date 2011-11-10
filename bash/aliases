@@ -31,3 +31,9 @@ ql() {
       -e 'end tell' \
       -e 'tell application "System Events" to keystroke "y" using command down' 2>/dev/null
 }
+
+# mate -> subl
+alias mate='subl'
+
+# hub!
+alias git='hub'
