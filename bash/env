@@ -17,3 +17,6 @@ PATH=".:$PATH"
 PATH="~/svn-projects/encuestas/cake/console:$PATH"
 
 export PATH
+
+#Python
+source /usr/local/bin/virtualenvwrapper.sh

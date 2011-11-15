@@ -37,3 +37,6 @@ alias mate='subl'
 
 # hub!
 alias git='hub'
+
+# candidator
+alias cand='workon candidator2.6 && cd ~/git-projects/candidator/'
