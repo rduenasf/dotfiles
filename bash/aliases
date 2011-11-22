@@ -32,11 +32,11 @@ ql() {
       -e 'tell application "System Events" to keystroke "y" using command down' 2>/dev/null
 }
 
-# mate -> subl
-alias mate='subl'
-
 # hub!
 alias git='hub'
 
 # candidator
 alias cand='workon candidator2.6 && cd ~/git-projects/candidator/'
+
+# update project requirements
+alias upreq='pip install -r requirements.txt'
