@@ -6,7 +6,11 @@ search() {
 # cd's to frontmost window of Finder
 cdh() {
     cd "`osascript -e 'tell application "Finder"' \
-        -e 'set myname to POSIX path of (target of window 1 as alias)' \
+        -e 'try' \
+        -e 'set myname to POSIX path of (folder of the front window as alias)' \
+        -e 'on error' \
+        -e 'set myname to POSIX path of (path to home folder as alias)' \
+        -e 'end try' \
         -e 'end tell' 2>/dev/null`"
 }
 
