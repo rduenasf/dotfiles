@@ -3,6 +3,11 @@ search() {
     find . | grep $1
 }
 
+# clean up asl logs
+cleanup() {
+    sudo rm -rf /private/var/log/asl/*.asl
+}
+
 # cd's to frontmost window of Finder
 cdh() {
     cd "`osascript -e 'tell application "Finder"' \
