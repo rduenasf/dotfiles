@@ -1,0 +1,8 @@
+// Place user-specific overrides in this file, to ensure they're preserved
+// when upgrading
+{
+// Valid values are "system", "enabled" and "disabled"
+    "overlay_scroll_bars": "enabled",
+
+    "theme": "Soda Light.sublime-theme"
+}

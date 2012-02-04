@@ -1,0 +1,11 @@
+{
+	"auto_upgrade_last_run": 1328340466,
+	"installed_packages":
+	[
+		"Package Control",
+		"SetDjangoSyntax",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"SublimeRope"
+	]
+}
