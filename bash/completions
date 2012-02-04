@@ -6,3 +6,6 @@
 
 # git completion (included in homebrew)
 #. ~/.bash/completion_scripts/git-completion
+
+# pip completion
+eval "`pip completion --bash`"
