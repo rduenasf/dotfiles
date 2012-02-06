@@ -5,7 +5,11 @@
 . ~/.bash/completion_scripts/django-completion
 
 # git completion (included in homebrew)
-#. ~/.bash/completion_scripts/git-completion
+. ~/.bash/completion_scripts/git-completion
+
+# hub completion
+. ~/.bash/completion_scripts/hub
 
 # pip completion
 eval "`pip completion --bash`"
+
