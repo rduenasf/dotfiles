@@ -1,0 +1,16 @@
+# force ignoredups and ignorespace
+export HISTCONTROL=ignoreboth
+
+# misc history stuff
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export SAVEHIST=$HISTSIZE
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# ignore the following commands
+export HISTIGNORE="man *:ls:cd:pwd:exit:date:* --help:history *"
+
+# source: https://github.com/janmoesen/tilde
+export HISTTIMEFORMAT=$'\e[1;30m%Y/%m/%d %H:%M:%S\e[0m  ';
