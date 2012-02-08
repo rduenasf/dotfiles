@@ -7,6 +7,9 @@
   token = !security 2>&1 >/dev/null find-generic-password -gs \"GitHub API Key\" | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
 #  token = !security 2>&1 >/dev/null find-generic-password -gs \"GitHub API Key\" | sed 's/password: "\(.*\)"/\1/'
 
+[color]
+  ui = auto
+
 [core]
   excludesfile = /Users/rduenas/.gitignore
   autocrlf = input

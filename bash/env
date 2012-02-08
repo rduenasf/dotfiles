@@ -1,20 +1,11 @@
-# PATH stuff
-PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-
-if [ -d "/usr/local" ]; then
-  PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-fi
-
 # TexLive binaries
 if [ -d "/usr/texbin" ]; then
-PATH="/usr/texbin:$PATH"
+    PATH="/usr/texbin:$PATH"
 fi
 
 # Adding support for executing scripts in the current folder
+# I know it's dangerous and stuff... but I don't care
 PATH=".:$PATH"
-
-# Adding cake support (remove later)
-PATH="~/svn-projects/encuestas/cake/console:$PATH"
 
 export PATH
 

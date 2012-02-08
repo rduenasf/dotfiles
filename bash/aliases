@@ -1,45 +1,11 @@
-# simple search command
-search() {
-    find . | grep $1
-}
-
-# clean up asl logs
-cleanup() {
-    sudo rm -rf /private/var/log/asl/*.asl
-}
-
-# cd's to frontmost window of Finder
-cdh() {
-    cd "`osascript -e 'tell application "Finder"' \
-        -e 'try' \
-        -e 'set myname to POSIX path of (folder of the front window as alias)' \
-        -e 'on error' \
-        -e 'set myname to POSIX path of (path to home folder as alias)' \
-        -e 'end try' \
-        -e 'end tell' 2>/dev/null`"
-}
-
-# quicklook the given file
-ql() {
-  case "$1" in
-    /*) path="$1" ;;
-    .)  path="`/bin/pwd`" ;;
-    *)  path="`/bin/pwd`/$1" ;;
-  esac
-  prevpath=
-  while [ "$prevpath" != "$path" ]
-  do
-    prevpath="$path"
-    path=`echo "$path" | sed 's,[^/]*/\.\./,,'`
-  done
-
-  osascript -e "set mypath to POSIX file \"$path\"" \
-      -e 'tell application "Finder"' \
-      -e 'reveal mypath' \
-      -e 'activate' \
-      -e 'end tell' \
-      -e 'tell application "System Events" to keystroke "y" using command down' 2>/dev/null
-}
-
 # hub!
 alias git='hub'
+
+# IP
+# source: https://github.com/mathiasbynens/dotfiles
+alias ip="curl http://ifconfig.me"
+alias localip="ipconfig getifaddr en1"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+# navigation
+alias ..="cd .."
