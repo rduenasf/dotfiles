@@ -7,6 +7,9 @@ fi
 # I know it's dangerous and stuff... but I don't care
 PATH=".:$PATH"
 
+# Ruby gems
+PATH="/Users/rduenas/.gem/ruby/1.8/bin:$PATH"
+
 export PATH
 
 #Python

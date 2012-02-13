@@ -1,6 +1,6 @@
 # simple search command
 search() {
-    find . | grep $1
+    find . -name "$1"
 }
 
 # clean up asl logs
