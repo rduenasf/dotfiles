@@ -18,6 +18,7 @@
   co = checkout
   st = status
   ci = commit
+  ad = add
 
 [branch "master"]
   remote = origin
