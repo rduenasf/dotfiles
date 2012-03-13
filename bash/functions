@@ -3,6 +3,11 @@ search() {
     find . -name "$1"
 }
 
+# search process
+psax() {
+    ps ax | grep $1
+}
+
 # clean up asl logs
 # source: http://lifehacker.com/comment/30658316/
 cleanup() {
