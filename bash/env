@@ -7,14 +7,19 @@ fi
 # I know it's dangerous and stuff... but I don't care
 PATH=".:$PATH"
 
-# Ruby gems
-PATH="/Users/rduenas/.gem/ruby/1.8/bin:$PATH"
-export PATH
+PATH="/usr/local/sbin:~/.bash/bin:$PATH"
 
 #Python
 source /usr/local/bin/virtualenvwrapper.sh
 
+# ANDROID SDK
+PATH="~/Downloads/adt-bundle-mac-x86_64-20140321/sdk/tools:~/Downloads/adt-bundle-mac-x86_64-20140321/sdk/platform-tools:$PATH"
+
+
 # Setting PATH for Python 2.7
 # The orginal version is saved in .bash_profile.pysave
 #PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+
 export PATH
+
+export ANT_OPTS=-Xmx1024m
