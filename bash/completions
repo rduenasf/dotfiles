@@ -13,3 +13,5 @@
 # pip completion
 eval "`pip completion --bash`"
 
+eval "`npm completion`"
+
