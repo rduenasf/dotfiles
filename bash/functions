@@ -1,11 +1,20 @@
+#
+tagit() {
+  hc=${1##*/}
+  hc=${hc%.yml}
+  hctag=$hc"-"$(date -u +%Y.%m.%d_%H.%M)
+  echo "running git tag "$hctag
+  git tag $hctag
+}
+
 # simple search command
 search() {
     find . -name "$1"
 }
 
 # search process
-psax() {
-    ps ax | grep $1
+psg() {
+    ps augxww | grep \\b$1
 }
 
 # clean up asl logs
