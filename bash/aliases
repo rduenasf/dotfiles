@@ -1,5 +1,5 @@
 # hub!
-alias git='hub'
+eval "$(hub alias -s)"
 
 # IP
 # source: https://github.com/mathiasbynens/dotfiles
