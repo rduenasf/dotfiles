@@ -23,7 +23,7 @@
   ocmit = commit
   comit = commit
   ad = add
-	pr = pull-request
+  pr = pull-request
   puhs = push
   psuh = push
   rest = reset
