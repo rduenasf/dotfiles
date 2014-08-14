@@ -17,8 +17,19 @@
 [alias]
   co = checkout
   st = status
-  ci = commit
+  ocmmit = commit
+  cmmit = commit
+  ocmit = commit
+  comit = commit
   ad = add
+	pr = pull-request
+  puhs = push
+  psuh = push
+  rest = reset
+  rset = reset
+  rst = reset
+  lb = for-each-ref --sort=-committerdate refs/heads/
+  dif = diff
 
 [branch "master"]
   remote = origin
@@ -32,3 +43,6 @@
 
 [hub]
   protocol = https
+
+[push]
+  default = tracking
