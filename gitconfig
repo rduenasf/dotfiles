@@ -16,6 +16,7 @@
   autocrlf = input
 
 [alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   co = checkout
   st = status
   ocmmit = commit
@@ -29,6 +30,7 @@
   rest = reset
   rset = reset
   rst = reset
+  unstage = reset HEAD
   lb = for-each-ref --sort=-committerdate refs/heads/
   dif = diff
 
