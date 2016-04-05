@@ -2,7 +2,7 @@
 . `brew --prefix`/etc/bash_completion
 
 # django completion
-. ~/.bash/completion_scripts/django-completion
+#. ~/.bash/completion_scripts/django-completion
 
 # git completion (included in homebrew)
 . ~/.bash/completion_scripts/git-completion
@@ -11,7 +11,7 @@
 . ~/.bash/completion_scripts/hub
 
 # pip completion
-eval "`pip completion --bash`"
+# eval "`pip completion --bash`"
 
 eval "`npm completion`"
 

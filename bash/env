@@ -7,18 +7,16 @@ fi
 # I know it's dangerous and stuff... but I don't care
 PATH=".:$PATH"
 
-PATH="/usr/local/sbin:~/.bash/bin:$PATH"
+PATH="/usr/local/bin:~/.bash/bin:$PATH"
 
-#Python
-source /usr/local/bin/virtualenvwrapper.sh
+# RVM
+PATH="$PATH:$HOME/.rvm/bin"
 
-# ANDROID SDK
-PATH="~/Downloads/adt-bundle-mac-x86_64-20140321/sdk/tools:~/Downloads/adt-bundle-mac-x86_64-20140321/sdk/platform-tools:$PATH"
-
-
-# Setting PATH for Python 2.7
-# The orginal version is saved in .bash_profile.pysave
-#PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+# Perl stuff
+PATH="~/perl5/bin${PATH+:}${PATH}"
+PERL5LIB="/Users/rduenas/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/rduenas/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;#PERL_MB_OPT="--install_base \"/Users/rduenas/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/rduenas/perl5"; export PERL_MM_OPT;
 
 export PATH
 

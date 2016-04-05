@@ -22,19 +22,25 @@
   cmmit = commit
   ocmit = commit
   comit = commit
+  comimt = commit
+  ommit = commit
+  ocommit = commit
+  ocmimt =  commit
+  ci = commit
   ad = add
   pr = pull-request
   puhs = push
+  puhsj = push
   psuh = push
+  psuhj = push
+  pushj = push
+  pul = pull
   rest = reset
   rset = reset
   rst = reset
   lb = for-each-ref --sort=-committerdate refs/heads/
   dif = diff
-
-[branch "master"]
-  remote = origin
-  merge = refs/heads/master
+  ts = status
 
 [diff]
   tool = opendiff
@@ -44,6 +50,7 @@
 
 [hub]
   protocol = https
+	host = github.groupondev.com
 
 [push]
   default = tracking

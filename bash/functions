@@ -7,6 +7,18 @@ tagit() {
   git tag $hctag
 }
 
+awyeah() {
+  set +o history
+}
+
+yax() {
+  name=$(youtube-dl --get-filename "$1")
+  url=$(youtube-dl --get-url "$1")
+  echo "axel --output='$name' $url"
+  axel -o "$name" "$url"
+  echo "Downloaded $name"
+}
+
 # simple search command
 search() {
     find . -name "$1"
@@ -82,6 +94,57 @@ function server() {
     # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
     # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
     python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
+}
+
+# Get info from gconfig
+function fetch_gconfig() {
+  curl "http://gconfig-$1-vip.snc1/key/getConfig?type=configs&format=json&country=us&hostname=foo&domain=$2" -H "Accept: application/json"  | python -c 'import sys, json; print json.dumps(json.load(sys.stdin)["us"], indent=4)'
+}
+
+
+function checkout-tests() {
+  echo "DEBUG=test-integration ./env.sh mocha test/integration/confirmation/booking_on_confirmation.test.coffee"
+  DEBUG=test-integration ./env.sh mocha test/integration/confirmation/booking_on_confirmation.test.coffee
+
+  echo "DEBUG=test-integration ./env.sh mocha test/integration/confirmation/incentives/promo_code.test.coffee"
+  DEBUG=test-integration ./env.sh mocha test/integration/confirmation/incentives/promo_code.test.coffee
+
+  echo "DEBUG=test-integration ./env.sh mocha test/integration/receipt/booking_on_receipt.test.coffee"
+  DEBUG=test-integration ./env.sh mocha test/integration/receipt/booking_on_receipt.test.coffee
+}
+
+function deal-tests() {
+  echo "DEBUG=test-integration ./env.sh mocha test/integration/booking_deal_test.coffee"
+  DEBUG=test-integration ./env.sh mocha test/integration/booking_deal_test.coffee
+
+  echo "DEBUG=test-integration ./env.sh mocha test/integration/glive_booking_deal.test.coffee"
+  DEBUG=test-integration ./env.sh mocha test/integration/glive_booking_deal.test.coffee
+
+  echo "DEBUG=test-integration ./env.sh mocha test/integration/glive_booking_touch.test.coffee"
+  DEBUG=test-integration ./env.sh mocha test/integration/glive_booking_touch.test.coffee
+}
+
+
+function patch-emport() {
+  set -e
+
+  . scripts/functions.sh
+
+  exit_if_not_development
+
+  NPM_ARGS=${NPM_ARGS:---registry http://npm-registry.snc1}
+
+  NEW_EMPORT_PACKAGE='emport-with-build-cache'
+  NEW_EMPORT_VERSION='0.6.4'
+  OLD_EMPORT_PACKAGE='emport'
+
+  GIFTWRAP_DIR='node_modules/keldor/node_modules/giftwrap'
+  pushd $GIFTWRAP_DIR
+  npm uninstall $OLD_EMPORT_PACKAGE # first we uninstall the original emport
+  npm $NPM_ARGS install $NEW_EMPORT_PACKAGE@$NEW_EMPORT_VERSION # and then we install the emport with cache to the emport
+  mv node_modules/$NEW_EMPORT_PACKAGE node_modules/$OLD_EMPORT_PACKAGE
+  popd
+
 }
 
 . `brew --prefix`/etc/profile.d/z.sh

@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+http = require('http');
+
+var repo, environment = 'staging';
+var environmentMapping = {
+  uat: 'gconfig-uat',
+  staging: 'gconfig-staging',
+  production: 'gconfig'
+}
+
+
+if (process.argv[2]) {
+  repo = process.argv[2];
+  environment = process.argv[3] || environment;
+
+}
+else {
+  console.log('Usage: gconf <repo> [environment=staging]');
+  return;
+}
+
+var hostname = environmentMapping[environment] + "-vip.snc1";
+var path = "/key/getConfig?type=configs&format=json&country=us&hostname=foo&domain="
+    path += repo;
+
+var options = {
+  hostname: hostname,
+  method: 'GET',
+  path: path,
+  headers: {
+    'Accept': 'application/json'
+  }
+}
+
+var accum = "";
+
+var parseJSON = function(){
+
+}
+
+http.get(options, function(res) {
+  res.on('data', function(chunk){
+    accum += chunk;
+  });
+  res.on('end', function() {
+
+    process.stdout.write(accum);
+    process.exit(0);
+  });
+});
+
