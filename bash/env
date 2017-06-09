@@ -1,23 +1,11 @@
-# TexLive binaries
-if [ -d "/usr/texbin" ]; then
-    PATH="/usr/texbin:$PATH"
-fi
-
 # Adding support for executing scripts in the current folder
 # I know it's dangerous and stuff... but I don't care
 PATH=".:$PATH"
 
+# Adding support for node_modules scripts
+export PATH="./node_modules/.bin:$PATH"
+
 PATH="/usr/local/bin:~/.bash/bin:$PATH"
 
-# RVM
-PATH="$PATH:$HOME/.rvm/bin"
-
-# Perl stuff
-PATH="~/perl5/bin${PATH+:}${PATH}"
-PERL5LIB="/Users/rduenas/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/rduenas/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;#PERL_MB_OPT="--install_base \"/Users/rduenas/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/rduenas/perl5"; export PERL_MM_OPT;
 
 export PATH
-
-export ANT_OPTS=-Xmx1024m
