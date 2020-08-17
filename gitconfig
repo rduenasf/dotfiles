@@ -1,6 +1,6 @@
 [user]
-  name = rduenasf (Rodrigo Dueñas)
-  email = rduenasf@gmail.com
+	name = rduenas (Rodrigo Dueñas)
+	email = rduenas@groupon.com
 
 [github]
   user = rduenasf
@@ -54,3 +54,8 @@
 
 [push]
   default = tracking
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

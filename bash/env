@@ -3,9 +3,10 @@
 PATH=".:$PATH"
 
 # Adding support for node_modules scripts
-export PATH="./node_modules/.bin:$PATH"
+PATH="./node_modules/.bin:$PATH"
 
 PATH="/usr/local/bin:~/.bash/bin:$PATH"
 
+HIPCHAT_USER="TheRodrigo"; export HIPCHAT_USER;
 
 export PATH
